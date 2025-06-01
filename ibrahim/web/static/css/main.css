@@ -1,0 +1,235 @@
+/* SpiderJS Web Interface Styles */
+
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --light-gray: #f4f4f4;
+  --dark-gray: #555;
+  --success: #27ae60;
+  --warning: #f39c12;
+  --danger: #c0392b;
+  --info: #2980b9;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-gray);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--secondary-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* Main content */
+main {
+  padding: 2rem 0;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-danger {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--danger);
+}
+
+/* Results display */
+.results-container {
+  margin-top: 30px;
+}
+
+.finding {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--info);
+  background-color: rgba(41, 128, 185, 0.1);
+}
+
+.finding.critical {
+  border-left-color: var(--danger);
+  background-color: rgba(192, 57, 43, 0.1);
+}
+
+.finding.high {
+  border-left-color: var(--accent-color);
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.finding.medium {
+  border-left-color: var(--warning);
+  background-color: rgba(243, 156, 18, 0.1);
+}
+
+.finding.low {
+  border-left-color: var(--success);
+  background-color: rgba(39, 174, 96, 0.1);
+}
+
+.finding-title {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.finding-description {
+  margin-top: 10px;
+}
+
+.severity-badge {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+  background-color: var(--info);
+}
+
+.severity-badge.critical {
+  background-color: var(--danger);
+}
+
+.severity-badge.high {
+  background-color: var(--accent-color);
+}
+
+.severity-badge.medium {
+  background-color: var(--warning);
+}
+
+.severity-badge.low {
+  background-color: var(--success);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .nav-links {
+    margin-top: 10px;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+} 

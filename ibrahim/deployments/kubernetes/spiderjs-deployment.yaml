@@ -1,0 +1,121 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spiderjs
+  labels:
+    app: spiderjs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spiderjs
+  template:
+    metadata:
+      labels:
+        app: spiderjs
+    spec:
+      containers:
+      - name: spiderjs
+        image: spiderjs:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        env:
+        - name: SPIDERJS_ENV
+          value: "production"
+        - name: SPIDERJS_LOG_LEVEL
+          value: "info"
+        - name: SPIDERJS_CONFIG
+          value: "/app/configs/default.yaml"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/configs
+        - name: data-volume
+          mountPath: /app/data
+        - name: logs-volume
+          mountPath: /app/logs
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: config-volume
+        configMap:
+          name: spiderjs-config
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: spiderjs-data-pvc
+      - name: logs-volume
+        persistentVolumeClaim:
+          claimName: spiderjs-logs-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spiderjs
+  labels:
+    app: spiderjs
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: spiderjs
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spiderjs-config
+data:
+  default.yaml: |
+    server:
+      host: "0.0.0.0"
+      port: 8080
+    scanner:
+      timeout: 30
+      user_agent: "SpiderJS/1.0"
+      max_depth: 3
+      threads: 5
+    logging:
+      level: "info"
+      format: "json"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: spiderjs-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: spiderjs-logs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi 

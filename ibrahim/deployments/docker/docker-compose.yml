@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  spiderjs:
+    build:
+      context: ../../
+      dockerfile: deployments/docker/Dockerfile
+    image: spiderjs:latest
+    container_name: spiderjs
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../../configs:/app/configs
+      - spiderjs-data:/app/data
+      - spiderjs-logs:/app/logs
+    environment:
+      - SPIDERJS_ENV=production
+      - SPIDERJS_LOG_LEVEL=info
+    command: ["server", "--host", "0.0.0.0", "--port", "8080"]
+    restart: unless-stopped
+    networks:
+      - spiderjs-network
+
+  # Optional database service
+  mongodb:
+    image: mongo:latest
+    container_name: spiderjs-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=spiderjs
+      - MONGO_INITDB_ROOT_PASSWORD=spiderjs_password
+    restart: unless-stopped
+    networks:
+      - spiderjs-network
+
+volumes:
+  spiderjs-data:
+  spiderjs-logs:
+  mongodb-data:
+
+networks:
+  spiderjs-network:
+    driver: bridge 

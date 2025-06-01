@@ -1,0 +1,41 @@
+{
+  "model_name": "SpiderJS-ML-1.0",
+  "version": "1.0.0",
+  "description": "Machine learning model for JavaScript vulnerability detection",
+  "created_at": "2025-05-29T00:00:00Z",
+  "features": [
+    "code_length",
+    "comment_ratio",
+    "function_count",
+    "nested_loops",
+    "dependency_count",
+    "unsafe_patterns"
+  ],
+  "thresholds": {
+    "high": 0.8,
+    "medium": 0.5,
+    "low": 0.3
+  },
+  "weights": {
+    "code_length": 0.1,
+    "comment_ratio": 0.05,
+    "function_count": 0.15,
+    "nested_loops": 0.2,
+    "dependency_count": 0.2,
+    "unsafe_patterns": 0.3
+  },
+  "unsafe_patterns": [
+    "eval\\(",
+    "Function\\(",
+    "setTimeout\\([^,]+,",
+    "setInterval\\([^,]+,",
+    "document\\.write\\(",
+    "innerHTML",
+    "outerHTML",
+    "insertAdjacentHTML",
+    "\\.src\\s*=",
+    "localStorage",
+    "sessionStorage",
+    "new\\s+Function\\("
+  ]
+} 

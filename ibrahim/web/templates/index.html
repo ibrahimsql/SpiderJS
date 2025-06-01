@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiderJS - JavaScript Application Security Scanner</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Spider<span>JS</span></div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/scan">Scanner</a></li>
+                <li><a href="/analyze">Analyzer</a></li>
+                <li><a href="/docs">Docs</a></li>
+                <li><a href="https://github.com/ibrahimsql/spiderjs" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="hero">
+                <h1>Discover JavaScript Security Issues</h1>
+                <p>SpiderJS is a powerful tool for analyzing and scanning modern JavaScript applications. 
+                It can detect frameworks, analyze bundles, discover APIs, and scan for vulnerabilities.</p>
+                <div class="cta-buttons">
+                    <a href="/scan" class="btn btn-primary">Start Scanning</a>
+                    <a href="/docs" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Framework Detection</h3>
+                    <p>Automatically detect popular JavaScript frameworks like React, Vue, Angular, and more.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Bundle Analysis</h3>
+                    <p>Analyze JavaScript bundles to extract dependencies and vulnerabilities.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>API Discovery</h3>
+                    <p>Discover API endpoints used by JavaScript applications.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security Scanning</h3>
+                    <p>Identify security vulnerabilities in JavaScript code.</p>
+                </div>
+            </div>
+
+            <div class="quick-start">
+                <h2>Quick Start</h2>
+                <div class="code-block">
+                    <pre><code>
+# Clone the repository
+git clone https://github.com/ibrahimsql/spiderjs.git
+cd spiderjs
+
+# Build the binary
+go build -o spiderjs_bin ./cmd/spiderjs
+
+# Run a scan
+./spiderjs_bin scan --url https://example.com
+                    </code></pre>
+                </div>
+                <p>Or use our web interface to scan your application.</p>
+                <a href="/scan" class="btn btn-primary">Start Scanning</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SpiderJS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
