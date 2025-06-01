@@ -1,0 +1,79 @@
+# Default values for SpiderJS Helm chart
+
+# Deployment configuration
+replicaCount: 1
+
+# Image configuration
+image:
+  repository: ibrahimsql/spiderjs
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+
+# Security context
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 8080
+
+# Ingress configuration
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: spiderjs.local
+      paths: ["/"]
+  tls: []
+
+# Resources configuration
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# Config configuration
+config:
+  logLevel: "info"
+  logFormat: "json"
+  ml:
+    modelPath: "/app/configs/ml/model.json"
+    threshold: 0.7
+  scanner:
+    timeout: 30
+    maxDepth: 3
+
+# Database configuration
+mongodb:
+  enabled: true
+  auth:
+    rootPassword: "spiderjs"
+    username: "spiderjs"
+    password: "spiderjs"
+    database: "spiderjs"
+  persistence:
+    enabled: true
+    size: 1Gi
+
+# Autoscaling configuration
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+# Node selector
+nodeSelector: {}
+
+# Tolerations
+tolerations: []
+
+# Affinity
+affinity: {} 

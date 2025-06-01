@@ -1,0 +1,795 @@
+swagger: "2.0"
+info:
+  title: SpiderJS API
+  description: API for SpiderJS - JavaScript Application Security Scanner
+  version: 1.0.0
+  contact:
+    name: SpiderJS Team
+    url: https://github.com/ibrahimsql/spiderjs
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+host: localhost:8080
+basePath: /api
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns the health status of the API
+      operationId: getHealth
+      tags:
+        - System
+      responses:
+        200:
+          description: Health check successful
+          schema:
+            $ref: "#/definitions/HealthResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /version:
+    get:
+      summary: Get API version
+      description: Returns the version of the SpiderJS API
+      operationId: getVersion
+      tags:
+        - System
+      responses:
+        200:
+          description: Version information retrieved successfully
+          schema:
+            $ref: "#/definitions/VersionResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /scan:
+    post:
+      summary: Scan a web application
+      description: |
+        Initiates a security scan of a web application based on the provided URL
+        and scan options.
+      operationId: scanWebApplication
+      tags:
+        - Scanner
+      parameters:
+        - name: scanRequest
+          in: body
+          description: Scan request parameters
+          required: true
+          schema:
+            $ref: "#/definitions/ScanRequest"
+      responses:
+        200:
+          description: Scan completed successfully
+          schema:
+            $ref: "#/definitions/ScanResponse"
+        400:
+          description: Invalid request parameters
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /scan/{scanId}:
+    get:
+      summary: Get scan results
+      description: Returns the results of a specific scan by ID
+      operationId: getScanResults
+      tags:
+        - Scanner
+      parameters:
+        - name: scanId
+          in: path
+          description: ID of the scan to retrieve
+          required: true
+          type: string
+      responses:
+        200:
+          description: Scan results retrieved successfully
+          schema:
+            $ref: "#/definitions/ScanResponse"
+        404:
+          description: Scan not found
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /scan/{scanId}/cancel:
+    post:
+      summary: Cancel a running scan
+      description: Cancels a running scan by ID
+      operationId: cancelScan
+      tags:
+        - Scanner
+      parameters:
+        - name: scanId
+          in: path
+          description: ID of the scan to cancel
+          required: true
+          type: string
+      responses:
+        200:
+          description: Scan cancelled successfully
+          schema:
+            $ref: "#/definitions/CancelResponse"
+        404:
+          description: Scan not found
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /analyze:
+    post:
+      summary: Analyze a JavaScript bundle
+      description: |
+        Analyzes a JavaScript bundle to identify frameworks, libraries, and
+        potential vulnerabilities.
+      operationId: analyzeBundle
+      tags:
+        - Analyzer
+      parameters:
+        - name: analyzeRequest
+          in: body
+          description: Analysis request parameters
+          required: true
+          schema:
+            $ref: "#/definitions/AnalyzeRequest"
+      responses:
+        200:
+          description: Analysis completed successfully
+          schema:
+            $ref: "#/definitions/AnalyzeResponse"
+        400:
+          description: Invalid request parameters
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /discover:
+    post:
+      summary: Discover APIs in a web application
+      description: |
+        Discovers API endpoints in a web application based on the provided URL
+        and discovery options.
+      operationId: discoverApis
+      tags:
+        - Discoverer
+      parameters:
+        - name: discoverRequest
+          in: body
+          description: Discovery request parameters
+          required: true
+          schema:
+            $ref: "#/definitions/DiscoverRequest"
+      responses:
+        200:
+          description: Discovery completed successfully
+          schema:
+            $ref: "#/definitions/DiscoverResponse"
+        400:
+          description: Invalid request parameters
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /ml/predict:
+    post:
+      summary: Predict vulnerabilities in JavaScript code
+      description: |
+        Uses machine learning to predict potential vulnerabilities in
+        JavaScript code.
+      operationId: predictVulnerabilities
+      tags:
+        - ML
+      parameters:
+        - name: predictRequest
+          in: body
+          description: Prediction request parameters
+          required: true
+          schema:
+            $ref: "#/definitions/PredictRequest"
+      responses:
+        200:
+          description: Prediction completed successfully
+          schema:
+            $ref: "#/definitions/PredictResponse"
+        400:
+          description: Invalid request parameters
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        500:
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+definitions:
+  HealthResponse:
+    type: object
+    properties:
+      status:
+        type: string
+        example: "ok"
+      timestamp:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:00:00Z"
+      version:
+        type: string
+        example: "1.0.0"
+
+  VersionResponse:
+    type: object
+    properties:
+      version:
+        type: string
+        example: "1.0.0"
+      build_date:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:00:00Z"
+      git_commit:
+        type: string
+        example: "abc123def456"
+      go_version:
+        type: string
+        example: "go1.24.0"
+
+  ErrorResponse:
+    type: object
+    properties:
+      error:
+        type: string
+        example: "Something went wrong"
+      code:
+        type: integer
+        format: int32
+        example: 500
+      timestamp:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:00:00Z"
+
+  ScanRequest:
+    type: object
+    required:
+      - url
+    properties:
+      url:
+        type: string
+        example: "https://example.com"
+      options:
+        type: object
+        properties:
+          max_depth:
+            type: integer
+            format: int32
+            default: 3
+            example: 3
+          timeout:
+            type: integer
+            format: int32
+            default: 30
+            example: 30
+          include_xss:
+            type: boolean
+            default: true
+            example: true
+          include_injection:
+            type: boolean
+            default: true
+            example: true
+          include_csrf:
+            type: boolean
+            default: true
+            example: true
+          include_cors:
+            type: boolean
+            default: true
+            example: true
+          include_headers:
+            type: boolean
+            default: true
+            example: true
+          include_cookies:
+            type: boolean
+            default: true
+            example: true
+          include_supply_chain:
+            type: boolean
+            default: true
+            example: true
+          include_prototype:
+            type: boolean
+            default: true
+            example: true
+
+  ScanResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "scan-123456"
+      target_url:
+        type: string
+        example: "https://example.com"
+      created_at:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:00:00Z"
+      completed_at:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:05:00Z"
+      status:
+        type: string
+        enum: ["running", "completed", "failed", "cancelled"]
+        example: "completed"
+      findings:
+        type: array
+        items:
+          $ref: "#/definitions/Finding"
+      summary:
+        $ref: "#/definitions/ScanSummary"
+
+  Finding:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "finding-123456"
+      type:
+        type: string
+        enum: ["vulnerability", "framework", "api", "route", "bundle", "config"]
+        example: "vulnerability"
+      title:
+        type: string
+        example: "Cross-Site Scripting (XSS)"
+      description:
+        type: string
+        example: "A cross-site scripting vulnerability was detected in the search form"
+      severity:
+        type: string
+        enum: ["critical", "high", "medium", "low", "info"]
+        example: "high"
+      url:
+        type: string
+        example: "https://example.com/search"
+      path:
+        type: string
+        example: "/search"
+      evidence:
+        type: string
+        example: "<script>alert('XSS')</script>"
+      remediation:
+        type: string
+        example: "Sanitize user input before outputting to HTML"
+      references:
+        type: array
+        items:
+          type: string
+        example: ["https://owasp.org/www-community/attacks/xss/"]
+      tags:
+        type: array
+        items:
+          type: string
+        example: ["xss", "input-validation"]
+      timestamp:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:03:00Z"
+
+  ScanSummary:
+    type: object
+    properties:
+      total_findings:
+        type: integer
+        format: int32
+        example: 5
+      critical_count:
+        type: integer
+        format: int32
+        example: 1
+      high_count:
+        type: integer
+        format: int32
+        example: 2
+      medium_count:
+        type: integer
+        format: int32
+        example: 1
+      low_count:
+        type: integer
+        format: int32
+        example: 1
+      info_count:
+        type: integer
+        format: int32
+        example: 0
+      score:
+        type: number
+        format: float
+        example: 65.5
+
+  CancelResponse:
+    type: object
+    properties:
+      scan_id:
+        type: string
+        example: "scan-123456"
+      status:
+        type: string
+        example: "cancelled"
+      message:
+        type: string
+        example: "Scan cancelled successfully"
+
+  AnalyzeRequest:
+    type: object
+    required:
+      - url
+    properties:
+      url:
+        type: string
+        example: "https://example.com/bundle.js"
+      bundle_type:
+        type: string
+        enum: ["webpack", "rollup", "vite", "parcel", "browserify", "esbuild", "other", ""]
+        example: "webpack"
+      options:
+        type: object
+        properties:
+          detect_frameworks:
+            type: boolean
+            default: true
+            example: true
+          extract_dependencies:
+            type: boolean
+            default: true
+            example: true
+          check_vulnerabilities:
+            type: boolean
+            default: true
+            example: true
+          extract_source_map:
+            type: boolean
+            default: true
+            example: true
+          detect_minification:
+            type: boolean
+            default: true
+            example: true
+
+  AnalyzeResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "analysis-123456"
+      url:
+        type: string
+        example: "https://example.com/bundle.js"
+      bundle_type:
+        type: string
+        example: "webpack"
+      minified:
+        type: boolean
+        example: true
+      source_map:
+        type: boolean
+        example: false
+      size:
+        type: integer
+        format: int64
+        example: 250000
+      dependencies:
+        type: array
+        items:
+          $ref: "#/definitions/Dependency"
+      frameworks:
+        type: array
+        items:
+          $ref: "#/definitions/Framework"
+      vulnerabilities:
+        type: array
+        items:
+          $ref: "#/definitions/Vulnerability"
+
+  Dependency:
+    type: object
+    properties:
+      name:
+        type: string
+        example: "react"
+      version:
+        type: string
+        example: "18.2.0"
+      path:
+        type: string
+        example: "node_modules/react"
+
+  Framework:
+    type: object
+    properties:
+      name:
+        type: string
+        example: "React"
+      version:
+        type: string
+        example: "18.2.0"
+      confidence:
+        type: number
+        format: float
+        example: 0.95
+      is_meta_framework:
+        type: boolean
+        example: false
+
+  Vulnerability:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "VUL-20250101-123456"
+      name:
+        type: string
+        example: "Prototype Pollution"
+      description:
+        type: string
+        example: "Vulnerable dependency allows for prototype pollution"
+      severity:
+        type: string
+        enum: ["critical", "high", "medium", "low", "info"]
+        example: "high"
+      package:
+        type: string
+        example: "lodash"
+      version:
+        type: string
+        example: "4.17.15"
+      affected_versions:
+        type: string
+        example: "<4.17.19"
+      fixed_version:
+        type: string
+        example: "4.17.19"
+      references:
+        type: array
+        items:
+          type: string
+        example: ["https://nvd.nist.gov/vuln/detail/CVE-2020-8203"]
+
+  DiscoverRequest:
+    type: object
+    required:
+      - url
+    properties:
+      url:
+        type: string
+        example: "https://example.com"
+      options:
+        type: object
+        properties:
+          max_depth:
+            type: integer
+            format: int32
+            default: 3
+            example: 3
+          timeout:
+            type: integer
+            format: int32
+            default: 30
+            example: 30
+          include_ajax:
+            type: boolean
+            default: true
+            example: true
+          include_graphql:
+            type: boolean
+            default: true
+            example: true
+          include_websocket:
+            type: boolean
+            default: true
+            example: true
+          include_routes:
+            type: boolean
+            default: true
+            example: true
+
+  DiscoverResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "discovery-123456"
+      target_url:
+        type: string
+        example: "https://example.com"
+      created_at:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:00:00Z"
+      completed_at:
+        type: string
+        format: date-time
+        example: "2025-01-01T12:05:00Z"
+      apis:
+        type: array
+        items:
+          $ref: "#/definitions/API"
+      routes:
+        type: array
+        items:
+          $ref: "#/definitions/Route"
+      frameworks:
+        type: array
+        items:
+          $ref: "#/definitions/Framework"
+
+  API:
+    type: object
+    properties:
+      url:
+        type: string
+        example: "https://example.com/api/users"
+      method:
+        type: string
+        example: "GET"
+      type:
+        type: string
+        enum: ["rest", "graphql", "websocket", "other"]
+        example: "rest"
+      parameters:
+        type: array
+        items:
+          type: string
+        example: ["id", "name", "email"]
+      source:
+        type: string
+        example: "main.js:123"
+      confidence:
+        type: number
+        format: float
+        example: 0.85
+
+  Route:
+    type: object
+    properties:
+      path:
+        type: string
+        example: "/users/:id"
+      component:
+        type: string
+        example: "UserProfile"
+      source:
+        type: string
+        example: "router.js:45"
+      confidence:
+        type: number
+        format: float
+        example: 0.9
+
+  PredictRequest:
+    type: object
+    required:
+      - code
+    properties:
+      code:
+        type: string
+        example: "function processInput(input) { eval(input); }"
+      options:
+        type: object
+        properties:
+          threshold:
+            type: number
+            format: float
+            default: 0.5
+            example: 0.5
+          model:
+            type: string
+            enum: ["default", "detailed"]
+            default: "default"
+            example: "default"
+
+  PredictResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "prediction-123456"
+      predictions:
+        type: array
+        items:
+          $ref: "#/definitions/Prediction"
+      summary:
+        $ref: "#/definitions/PredictionSummary"
+
+  Prediction:
+    type: object
+    properties:
+      type:
+        type: string
+        example: "xss"
+      confidence:
+        type: number
+        format: float
+        example: 0.85
+      line:
+        type: integer
+        format: int32
+        example: 1
+      column:
+        type: integer
+        format: int32
+        example: 32
+      code:
+        type: string
+        example: "eval(input)"
+      description:
+        type: string
+        example: "Using eval() with user input can lead to XSS vulnerabilities"
+      severity:
+        type: string
+        enum: ["critical", "high", "medium", "low", "info"]
+        example: "high"
+      remediation:
+        type: string
+        example: "Avoid using eval() with user input"
+
+  PredictionSummary:
+    type: object
+    properties:
+      total_predictions:
+        type: integer
+        format: int32
+        example: 3
+      critical_count:
+        type: integer
+        format: int32
+        example: 1
+      high_count:
+        type: integer
+        format: int32
+        example: 1
+      medium_count:
+        type: integer
+        format: int32
+        example: 1
+      low_count:
+        type: integer
+        format: int32
+        example: 0
+      info_count:
+        type: integer
+        format: int32
+        example: 0
+      risk_score:
+        type: number
+        format: float
+        example: 72.5 

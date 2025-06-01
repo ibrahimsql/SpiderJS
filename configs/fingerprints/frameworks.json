@@ -1,0 +1,153 @@
+{
+  "frameworks": [
+    {
+      "name": "React",
+      "patterns": [
+        "React\\.(Component|createElement|cloneElement)",
+        "__REACT_ROOT_ID__",
+        "__REACT_DATA__",
+        "reactRoot",
+        "_reactRootContainer"
+      ],
+      "meta": false,
+      "detection_weight": 1.0,
+      "cdn_paths": [
+        "react.development.js",
+        "react.production.min.js",
+        "react.min.js"
+      ],
+      "npm_packages": [
+        "react"
+      ],
+      "version_pattern": "React\\.version\\s*=\\s*['\"]([\\d\\.]+)['\"]"
+    },
+    {
+      "name": "Vue",
+      "patterns": [
+        "__vue__",
+        "Vue\\.prototype",
+        "Vue\\.component",
+        "Vue\\.use",
+        "Vue\\.mixin"
+      ],
+      "meta": false,
+      "detection_weight": 1.0,
+      "cdn_paths": [
+        "vue.js",
+        "vue.min.js",
+        "vue.global.js",
+        "vue.runtime.js"
+      ],
+      "npm_packages": [
+        "vue"
+      ],
+      "version_pattern": "Vue\\.version\\s*=\\s*['\"]([\\d\\.]+)['\"]"
+    },
+    {
+      "name": "Angular",
+      "patterns": [
+        "ng\\.(module|directive|controller)",
+        "angular\\.(module|bootstrap)",
+        "ngRoute",
+        "ngResource"
+      ],
+      "meta": false,
+      "detection_weight": 1.0,
+      "cdn_paths": [
+        "angular.js",
+        "angular.min.js"
+      ],
+      "npm_packages": [
+        "angular",
+        "@angular/core"
+      ],
+      "version_pattern": "angular\\.version\\.full\\s*=\\s*['\"]([\\d\\.]+)['\"]"
+    },
+    {
+      "name": "Next.js",
+      "patterns": [
+        "__NEXT_DATA__",
+        "next\\/dist\\/",
+        "next\\/static",
+        "_N_E"
+      ],
+      "meta": true,
+      "detection_weight": 0.9,
+      "cdn_paths": [],
+      "npm_packages": [
+        "next"
+      ],
+      "version_pattern": ""
+    },
+    {
+      "name": "Nuxt.js",
+      "patterns": [
+        "__NUXT__",
+        "window\\.__NUXT__",
+        "_nuxt\\/",
+        "nuxt-link"
+      ],
+      "meta": true,
+      "detection_weight": 0.9,
+      "cdn_paths": [],
+      "npm_packages": [
+        "nuxt"
+      ],
+      "version_pattern": ""
+    },
+    {
+      "name": "jQuery",
+      "patterns": [
+        "jQuery",
+        "\\$\\.fn",
+        "\\$\\.extend"
+      ],
+      "meta": false,
+      "detection_weight": 0.8,
+      "cdn_paths": [
+        "jquery.js",
+        "jquery.min.js"
+      ],
+      "npm_packages": [
+        "jquery"
+      ],
+      "version_pattern": "jQuery\\.fn\\.jquery\\s*=\\s*['\"]([\\d\\.]+)['\"]"
+    },
+    {
+      "name": "Svelte",
+      "patterns": [
+        "SvelteComponent",
+        "__SVELTE",
+        "__SVELTE_"
+      ],
+      "meta": false,
+      "detection_weight": 0.9,
+      "cdn_paths": [
+        "svelte.js",
+        "svelte.min.js"
+      ],
+      "npm_packages": [
+        "svelte"
+      ],
+      "version_pattern": ""
+    },
+    {
+      "name": "Ember",
+      "patterns": [
+        "Ember\\.(Application|Component|View|Controller)",
+        "EmberENV"
+      ],
+      "meta": false,
+      "detection_weight": 0.9,
+      "cdn_paths": [
+        "ember.js",
+        "ember.min.js"
+      ],
+      "npm_packages": [
+        "ember",
+        "ember-cli"
+      ],
+      "version_pattern": "Ember\\.VERSION\\s*=\\s*['\"]([\\d\\.]+)['\"]"
+    }
+  ]
+} 
