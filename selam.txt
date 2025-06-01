@@ -1,0 +1,223 @@
+
+   _____       _     __          __  _____
+  / ___/____  (_)___/ /__  _____/ /_/ ___/
+  \__ \/ __ \/ / __  / _ \/ ___/ __/\__ \ 
+ ___/ / /_/ / / /_/ /  __/ /  / /_ ___/ / 
+/____/ .___/_/\__,_/\___/_/   \__//____/  
+    /_/                                   
+                                   v1.0.0
+JavaScript Application Security Scanner
+https://github.com/ibrahimsql/spiderjs
+
+time="2025-06-01T21:19:53+03:00" level=info msg="Starting scanurlhttps://codefacture.commax_depth1timeout300"
+time="2025-06-01T21:19:53+03:00" level=info msg="Starting comprehensive scan of https://codefacture.com"
+time="2025-06-01T21:19:53+03:00" level=info msg="Starting advanced crawl of https://codefacture.com"
+https://codefacture.com
+https://codefacture.com/_next/static/utYK-6uuUNN8E1JHUQUSn/_ssgManifest.js
+https://codefacture.com/_next/static/chunks/935-54b151c7d6576179.js
+https://codefacture.com/_next/static/chunks/1bfc9850-3ea238cc18dd6c90.js
+https://codefacture.com/_next/static/chunks/7481-9e4a68eca38fe634.js
+https://codefacture.com/_next/static/utYK-6uuUNN8E1JHUQUSn/_buildManifest.js
+https://codefacture.com/_next/static/chunks/pages/_app-4b8c6defa6cf7de9.js
+https://codefacture.com/_next/static/chunks/4671-dcd5c34b4571dfce.js
+https://codefacture.com/_next/static/chunks/pages/index-fd4cfdac6748b7bd.js
+https://codefacture.com/_next/static/chunks/webpack-bd230b38dc5edac9.js
+https://codefacture.com/_next/static/chunks/main-94bd204b272529b7.js
+https://codefacture.com/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
+https://codefacture.com/_next/static/chunks/framework-ca706bf673a13738.js
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-secure-shield-1231.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-secure-shield-1231.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fpython-development-service-1215.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fjavascript-developer-12313.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Ftailwind-css-development-service-12312.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Flaravel-logo-12445.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Ftypescript-logo-124145.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fvue-js-logo-1242141.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fnext-js-hizmeti-12312.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fnode-js-development-service-1231.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fcoefacure-healthcare-crm-5242.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Freact-programming-language-service-12412.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-education-crm-5232.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-education-crm-5232.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fcoefacure-healthcare-crm-5242.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-real-estate-crm-4321.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-real-estate-crm-4321.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-building-construction-crm-4521.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-building-construction-crm-4521.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-supply-chain-crm-4512.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-manufacturer-area-14212.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-supply-chain-crm-4512.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-manufacturer-area-14212.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-siber-guvenlik-125124.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-siber-guvenlik-125124.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-seo-hizmeti-5123512.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-seo-hizmeti-5123512.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-web-tasarim-12412.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-web-tasarim-12412.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=256&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=128&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=48&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=96&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=64&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=16&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-user-interactive-applications-43.png&w=32&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=1920&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=1200&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=1080&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=2048&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=828&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=640&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=750&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=384&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=256&q=75
+mailto:info@codefacture.com
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=128&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=96&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=64&q=75
+https://codefacture.com/_next/static/css/43afabb8e3cbe20c.css
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=48&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=32&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=3840&q=75
+https://codefacture.com/_next/image/?url=%2Fcodefacture-crm-erp-service-image-4523.png&w=16&q=75
+https://codefacture.com
+https://codefacture.com/terms-and-conditions/
+https://codefacture.com/privacy-policy/
+https://codefacture.com/gdpr-policy/
+https://codefacture.com/hospital-management-software/
+https://codefacture.com/cookie-policy/
+https://codefacture.com/real-estate-management-software/
+https://codefacture.com/construction-management-software/
+https://codefacture.com/manufacturing-management-software/
+https://codefacture.com/supply-chain-management-software/
+https://codefacture.com/contact/
+https://codefacture.com/education-management-software/
+https://codefacture.com/references/
+https://codefacture.com/
+https://codefacture.com/about/
+https://codefacture.com/tr
+https://codefacture.com/services/
+https://codefacture.com/blog/
+time="2025-06-01T21:24:56+03:00" level=info msg="Crawl completed in 5m3.019820875s"
+time="2025-06-01T21:24:56+03:00" level=info msg="Visited 174 URLs"
+time="2025-06-01T21:24:56+03:00" level=info msg="Found 12 scripts"
+time="2025-06-01T21:24:56+03:00" level=info msg="Found 0 APIs"
+time="2025-06-01T21:24:56+03:00" level=info msg="Analyzing 12 JavaScript files"
+time="2025-06-01T21:24:56+03:00" level=info msg="Scan completed in 5m3.023391042s"
+time="2025-06-01T21:24:56+03:00" level=info msg="Found 24 issues"
+time="2025-06-01T21:24:56+03:00" level=info msg="Scan completed successfully%!(EXTRA string=duration, string=5m3.023485542s)"
+time="2025-06-01T21:24:56+03:00" level=info msg="Scan summaryurlhttps://codefacture.comduration5m3.023485542sfindings24"
+time="2025-06-01T21:24:56+03:00" level=info msg="Issues found:"
+time="2025-06-01T21:24:56+03:00" level=info msg="[1] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/main-94bd204b272529b7.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[2] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/main-94bd204b272529b7.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[3] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[4] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[5] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/1bfc9850-3ea238cc18dd6c90.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[6] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/1bfc9850-3ea238cc18dd6c90.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[7] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/4671-dcd5c34b4571dfce.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[8] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/4671-dcd5c34b4571dfce.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[9] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/webpack-bd230b38dc5edac9.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[10] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/webpack-bd230b38dc5edac9.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[11] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/7481-9e4a68eca38fe634.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[12] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/7481-9e4a68eca38fe634.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[13] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/framework-ca706bf673a13738.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[14] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/framework-ca706bf673a13738.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[15] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/pages/_app-4b8c6defa6cf7de9.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[16] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/pages/_app-4b8c6defa6cf7de9.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[17] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/935-54b151c7d6576179.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[18] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/935-54b151c7d6576179.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[19] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/utYK-6uuUNN8E1JHUQUSn/_ssgManifest.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[20] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/utYK-6uuUNN8E1JHUQUSn/_ssgManifest.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[21] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/chunks/pages/index-fd4cfdac6748b7bd.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[22] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/chunks/pages/index-fd4cfdac6748b7bd.js. Manual review recommended."
+time="2025-06-01T21:24:56+03:00" level=info msg="[23] Potential Third-Party Scripttypesupply_chainseveritylowdescriptionThird-party script detected: https://codefacture.com/_next/static/utYK-6uuUNN8E1JHUQUSn/_buildManifest.js. External scripts should be reviewed for security implications."
+time="2025-06-01T21:24:56+03:00" level=info msg="[24] Potential Prototype PollutiontypeprototypeseveritymediumdescriptionScript may be vulnerable to prototype pollution: https://codefacture.com/_next/static/utYK-6uuUNN8E1JHUQUSn/_buildManifest.js. Manual review recommended."

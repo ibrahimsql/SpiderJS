@@ -38,6 +38,22 @@ const (
 	FindingTypeBundle FindingType = "bundle"
 	// FindingTypeConfig represents a configuration issue
 	FindingTypeConfig FindingType = "config"
+	// FindingTypeXSS represents a cross-site scripting vulnerability
+	FindingTypeXSS FindingType = "xss"
+	// FindingTypeInjection represents an injection vulnerability
+	FindingTypeInjection FindingType = "injection"
+	// FindingTypeCSRF represents a cross-site request forgery vulnerability
+	FindingTypeCSRF FindingType = "csrf"
+	// FindingTypeCORS represents a CORS misconfiguration
+	FindingTypeCORS FindingType = "cors"
+	// FindingTypeHeader represents a security header issue
+	FindingTypeHeader FindingType = "header"
+	// FindingTypeCookie represents a cookie security issue
+	FindingTypeCookie FindingType = "cookie"
+	// FindingTypeSupplyChain represents a supply chain security issue
+	FindingTypeSupplyChain FindingType = "supply_chain"
+	// FindingTypePrototype represents a prototype pollution vulnerability
+	FindingTypePrototype FindingType = "prototype"
 )
 
 // Finding represents a security finding or discovery

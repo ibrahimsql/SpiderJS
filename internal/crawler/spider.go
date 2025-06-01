@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"math"
 	"net/http"
 	"net/url"
 	"strings"
@@ -15,6 +16,9 @@ import (
 	customhttp "github.com/ibrahimsql/spiderjs/internal/utils/http"
 	"github.com/ibrahimsql/spiderjs/internal/utils/logger"
 	"github.com/ibrahimsql/spiderjs/pkg/models"
+	"github.com/projectdiscovery/katana/pkg/engine/standard"
+	"github.com/projectdiscovery/katana/pkg/output"
+	"github.com/projectdiscovery/katana/pkg/types"
 )
 
 // Spider is a web crawler for JavaScript applications
@@ -24,9 +28,7 @@ type Spider struct {
 	log       *logger.Logger
 	target    *models.Target
 	visited   map[string]bool
-	queue     []string
 	mutex     sync.Mutex
-	wg        sync.WaitGroup
 	semaphore chan struct{}
 }
 
@@ -84,7 +86,7 @@ func NewSpider(ctx context.Context, cfg *config.Config, log *logger.Logger) (*Sp
 	}, nil
 }
 
-// Crawl starts crawling the target
+// Crawl starts crawling the target using Katana library
 func (s *Spider) Crawl(ctx context.Context) (*models.Target, error) {
 	// Context timeout check
 	if ctx.Err() != nil {
@@ -99,42 +101,50 @@ func (s *Spider) Crawl(ctx context.Context) (*models.Target, error) {
 		}
 	}()
 
-	// Add initial URL to queue
-	s.queue = append(s.queue, s.target.URL)
-
-	// Start crawling
-	s.log.Success("Starting crawl of %s", s.target.URL)
+	s.log.Success("Starting advanced crawl of %s", s.target.URL)
 	startTime := time.Now()
 
-	// Process queue
-	for len(s.queue) > 0 && ctx.Err() == nil {
-		// Get next URL from queue
-		var url string
-		s.mutex.Lock()
-		url, s.queue = s.queue[0], s.queue[1:]
-		s.mutex.Unlock()
-
-		// Skip if already visited
-		if s.isVisited(url) {
-			continue
-		}
-
-		// Mark as visited
-		s.markVisited(url)
-
-		// Process URL
-		s.wg.Add(1)
-		s.semaphore <- struct{}{}
-		go func(url string) {
-			defer s.wg.Done()
-			defer func() { <-s.semaphore }()
-
-			s.processURL(ctx, url)
-		}(url)
+	// Configure Katana crawler options
+	options := &types.Options{
+		MaxDepth:     s.config.MaxDepth,
+		FieldScope:   "rdn",                           // Crawling Scope Field (root domain name)
+		BodyReadSize: math.MaxInt,                     // Maximum response size to read
+		Timeout:      int(s.config.Timeout.Seconds()), // Timeout in seconds
+		Concurrency:  s.config.Concurrent,             // Concurrent crawling goroutines
+		Parallelism:  s.config.Concurrent,             // Parallel URL processing goroutines
+		Delay:        0,                               // No delay between requests
+		RateLimit:    150,                             // Maximum requests per second
+		Strategy:     "depth-first",                   // Visit strategy
+		OnResult: func(result output.Result) {
+			// Process each crawled URL
+			s.processKatanaResult(ctx, result)
+		},
 	}
 
-	// Wait for all goroutines to finish
-	s.wg.Wait()
+	// Setup additional options based on config
+	if s.config.ScanOptions.IncludeSubdomains {
+		options.FieldScope = "fqdn" // Full qualified domain name to include subdomains
+	}
+
+	// Initialize Katana crawler
+	crawlerOptions, err := types.NewCrawlerOptions(options)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create crawler options: %w", err)
+	}
+	defer crawlerOptions.Close()
+
+	crawler, err := standard.New(crawlerOptions)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create crawler: %w", err)
+	}
+	defer crawler.Close()
+
+	// Start crawling
+	err = crawler.Crawl(s.target.URL)
+	if err != nil {
+		s.log.ErrorMsg("Crawler error: %v", err)
+		// Continue with partial results if available
+	}
 
 	// Log results
 	duration := time.Since(startTime)
@@ -146,12 +156,22 @@ func (s *Spider) Crawl(ctx context.Context) (*models.Target, error) {
 	return s.target, nil
 }
 
-// processURL processes a single URL
-func (s *Spider) processURL(ctx context.Context, urlStr string) {
+// processKatanaResult processes a single result from Katana crawler
+func (s *Spider) processKatanaResult(ctx context.Context, result output.Result) {
 	// Check context
 	if ctx.Err() != nil {
 		return
 	}
+
+	urlStr := result.Request.URL
+
+	// Skip if already visited
+	if s.isVisited(urlStr) {
+		return
+	}
+
+	// Mark as visited
+	s.markVisited(urlStr)
 
 	// Parse URL
 	parsedURL, err := url.Parse(urlStr)
@@ -160,90 +180,64 @@ func (s *Spider) processURL(ctx context.Context, urlStr string) {
 		return
 	}
 
-	// Skip if not same domain
-	if parsedURL.Hostname() != s.target.Domain && !s.config.ScanOptions.IncludeSubdomains {
-		return
-	}
-
-	// Skip if depth exceeded
-	depth := strings.Count(parsedURL.Path, "/")
-	if depth > s.config.MaxDepth {
-		return
-	}
-
-	// Fetch URL
-	s.log.Success("Fetching %s", urlStr)
-	resp, err := s.client.Get(ctx, urlStr)
-	if err != nil {
-		s.log.ErrorMsg("Failed to fetch %s: %v", urlStr, err)
-		return
-	}
-	defer resp.Body.Close()
-
-	// Check status code
-	if resp.StatusCode != http.StatusOK {
-		s.log.Warning("Got status %d for %s", resp.StatusCode, urlStr)
-		return
-	}
-
 	// Add path to target
 	s.target.AddPath(parsedURL.Path)
 
-	// Extract headers
-	for key, values := range resp.Header {
+	// Extract headers from response
+	for key, values := range result.Response.Headers {
 		if len(values) > 0 {
-			s.target.AddHeader(key, values[0])
+			s.target.AddHeader(key, string(values[0]))
 		}
 	}
 
-	// Extract cookies
-	for _, cookie := range resp.Cookies() {
-		s.target.AddCookie(cookie.Name, cookie.Value)
+	// Process JavaScript files
+	if strings.HasSuffix(parsedURL.Path, ".js") ||
+		strings.HasSuffix(parsedURL.Path, ".jsx") ||
+		strings.HasSuffix(parsedURL.Path, ".ts") ||
+		strings.HasSuffix(parsedURL.Path, ".tsx") {
+		s.target.AddScript(urlStr)
 	}
 
-	// Parse HTML
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		s.log.ErrorMsg("Failed to parse HTML from %s: %v", urlStr, err)
-		return
+	// Process potential API endpoints
+	if isAPIEndpoint(parsedURL.Path) {
+		s.target.AddAPI(urlStr)
 	}
 
-	// Extract links
-	doc.Find("a").Each(func(i int, sel *goquery.Selection) {
-		href, exists := sel.Attr("href")
-		if !exists {
-			return
+	// Process HTML content for additional extraction
+	if result.Response.StatusCode == http.StatusOK {
+		contentType := ""
+		if values, ok := result.Response.Headers["Content-Type"]; ok && len(values) > 0 {
+			contentType = string(values[0])
 		}
+		if strings.Contains(contentType, "text/html") {
+			doc, err := goquery.NewDocumentFromReader(strings.NewReader(result.Response.Body))
+			if err == nil {
+				// Extract scripts
+				doc.Find("script").Each(func(i int, sel *goquery.Selection) {
+					src, exists := sel.Attr("src")
+					if exists {
+						// Resolve relative URL
+						resolvedURL, err := resolveURL(urlStr, src)
+						if err == nil {
+							s.target.AddScript(resolvedURL)
+						}
+					}
+				})
 
-		// Resolve relative URL
-		resolvedURL, err := resolveURL(urlStr, href)
-		if err != nil {
-			return
+				// Extract forms
+				doc.Find("form").Each(func(i int, sel *goquery.Selection) {
+					action, exists := sel.Attr("action")
+					if exists {
+						// Resolve relative URL
+						resolvedURL, err := resolveURL(urlStr, action)
+						if err == nil {
+							s.target.AddAPI(resolvedURL)
+						}
+					}
+				})
+			}
 		}
-
-		// Add to queue if not visited
-		if !s.isVisited(resolvedURL) {
-			s.addToQueue(resolvedURL)
-		}
-	})
-
-	// Extract scripts
-	doc.Find("script").Each(func(i int, sel *goquery.Selection) {
-		src, exists := sel.Attr("src")
-		if !exists {
-			// Inline script
-			return
-		}
-
-		// Resolve relative URL
-		resolvedURL, err := resolveURL(urlStr, src)
-		if err != nil {
-			return
-		}
-
-		// Add to target
-		s.target.AddScript(resolvedURL)
-	})
+	}
 }
 
 // isVisited checks if a URL has been visited
@@ -262,12 +256,27 @@ func (s *Spider) markVisited(url string) {
 	s.visited[url] = true
 }
 
-// addToQueue adds a URL to the queue
-func (s *Spider) addToQueue(url string) {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
+// isAPIEndpoint checks if a path is likely an API endpoint
+func isAPIEndpoint(path string) bool {
+	apiPatterns := []string{
+		"/api/",
+		"/rest/",
+		"/graphql",
+		"/v1/",
+		"/v2/",
+		"/v3/",
+		"/service/",
+		".json",
+		".xml",
+	}
 
-	s.queue = append(s.queue, url)
+	for _, pattern := range apiPatterns {
+		if strings.Contains(path, pattern) {
+			return true
+		}
+	}
+
+	return false
 }
 
 // resolveURL resolves a relative URL against a base URL
